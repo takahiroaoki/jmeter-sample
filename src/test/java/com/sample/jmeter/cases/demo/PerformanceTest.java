@@ -25,20 +25,27 @@ public class PerformanceTest {
     void test() throws IOException {
         testPlan(
                 vars()
-                        .set("protocol", PROTOCOL_DATA_PATH)
-                        .set("domain", DOMAIN_DATA_PATH)
-                        .set("port", PORT_DATA_PATH)
-                        .set("api-key", API_KEY_DATA_PATH),
+                        .set("protocol", String.format(PathConst.DATA_PATH_FORMATTER,
+                                PROTOCOL_DATA_PATH))
+                        .set("domain", String.format(PathConst.DATA_PATH_FORMATTER,
+                                DOMAIN_DATA_PATH))
+                        .set("port", String.format(PathConst.DATA_PATH_FORMATTER,
+                                PORT_DATA_PATH))
+                        .set("api-key", String.format(PathConst.DATA_PATH_FORMATTER,
+                                API_KEY_DATA_PATH)),
                 csvDataSet(PARAMS_DATA_PATH))
                 .tearDownOnlyAfterMainThreadsDone()
                 .children(
                         httpCache().disable(),
                         threadGroup("ThreadGroup0")
-                                .rampToAndHold(5, Duration.ofSeconds(5), Duration.ofSeconds(10))
+                                .rampToAndHold(5, Duration.ofSeconds(5),
+                                        Duration.ofSeconds(10))
                                 .children(
                                         throughputTimer(60.0),
-                                        httpSampler("${protocol}://${domain}:${port}" + UrlConst.DEMO_ENDPOINT)
-                                                .header("api-key", "${api-key}")
+                                        httpSampler("${protocol}://${domain}:${port}"
+                                                + UrlConst.DEMO_ENDPOINT)
+                                                .header("api-key",
+                                                        "${api-key}")
                                                 .param("paramA", "${PARAM_A}")
                                                 .param("paramB", "${PARAM_B}"),
                                         resultsTreeVisualizer()),
