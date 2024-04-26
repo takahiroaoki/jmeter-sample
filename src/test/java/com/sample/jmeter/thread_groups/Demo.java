@@ -2,14 +2,12 @@ package com.sample.jmeter.thread_groups;
 
 import static us.abstracta.jmeter.javadsl.JmeterDsl.*;
 
-import java.time.Duration;
-
 import com.sample.jmeter.constants.UrlConst;
 import com.sample.jmeter.constants.PathConst;
 
 import us.abstracta.jmeter.javadsl.core.threadgroups.DslDefaultThreadGroup;
 
-public class Demo {
+public class Demo implements ThreadGroupGeneratorIF {
     /* INPUT */
     private static final String PROTOCOL_DATA_PATH = PathConst.COMMON_DATA_CONTEXT + "demo/protocol.txt";
     private static final String DOMAIN_DATA_PATH = PathConst.COMMON_DATA_CONTEXT + "demo/domain.txt";
@@ -17,7 +15,7 @@ public class Demo {
     private static final String API_KEY_DATA_PATH = PathConst.COMMON_DATA_CONTEXT + "demo/api_key.txt";
     private static final String PARAMS_DATA_PATH = PathConst.COMMON_DATA_CONTEXT + "demo/params.csv";
     
-    public static DslDefaultThreadGroup getThreadGroup(String threadGroupName) {
+    public DslDefaultThreadGroup getThreadGroup(String threadGroupName) {
         return threadGroup(threadGroupName)
             .children(
                 vars()

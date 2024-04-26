@@ -27,7 +27,8 @@ public class PerformanceTest {
             .tearDownOnlyAfterMainThreadsDone()
             .children(
                 httpCache().disable(),
-                Demo.getThreadGroup("demo")
+                httpCookies().disable(),
+                new Demo().getThreadGroup("demo")
                     .rampToAndHold(THREAD_PER_GROUPS, Duration.ofSeconds(RAMP_UP_DURATION), Duration.ofSeconds(HOLD_DURATION - RAMP_UP_DURATION))
                     .children(
                         throughputTimer(ThroughputUtil.rpsToRpm(RPS_PER_GROUP))
