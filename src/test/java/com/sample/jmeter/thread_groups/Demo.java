@@ -5,6 +5,7 @@ import static us.abstracta.jmeter.javadsl.JmeterDsl.*;
 import com.sample.jmeter.constants.UrlConst;
 import com.sample.jmeter.constants.PathConst;
 
+import com.sample.jmeter.thread_groups.components.ThreadGroupGeneratorIF;
 import us.abstracta.jmeter.javadsl.core.threadgroups.DslDefaultThreadGroup;
 
 public class Demo implements ThreadGroupGeneratorIF {

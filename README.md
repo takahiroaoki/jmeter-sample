@@ -4,6 +4,7 @@
 
 - java 11+
 - Maven 3.5+
+- python3
 
 ## tech stack
 

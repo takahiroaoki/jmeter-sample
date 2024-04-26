@@ -1,4 +1,4 @@
-package com.sample.jmeter.cases.high_load.demo;
+package com.sample.jmeter.cases.high_load;
 
 import static us.abstracta.jmeter.javadsl.JmeterDsl.*;
 
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.sample.jmeter.constants.PathConst;
 import com.sample.jmeter.thread_groups.Demo;
 
-public class PerformanceTest {
+public class DemoPerformanceTest {
     /* OUTPUT */
     private static final String REPORT_OUTPUT_PATH = PathConst.HIGH_LOAD_REPORTS_CONTEXT + "demo/report.csv";
     
