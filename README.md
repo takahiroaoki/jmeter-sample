@@ -26,7 +26,7 @@ $ git clone https://github.com/takahiroaoki/jmeter-sample.git
 $ cd jmeter-sample
 
 # download
-$ curl -O https://dlcdn.apache.org//jmeter/binaries/apache-jmeter-5.6.3.tgz
+$ curl -O https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
 
 # unfreez
 $ tar -xf apache-jmeter-5.6.3.tgz
